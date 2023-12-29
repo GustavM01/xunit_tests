@@ -42,5 +42,19 @@ namespace TodoAPI.Controllers
                 return _context.Todo.ToArray();
             }
         }
+
+        public Todo DeleteNote(int Id)
+        {
+            var todo = _context.Todo.FirstOrDefault(x => x.Id == Id);
+
+            if (todo == null)
+            {
+                throw new Exception("");
+            }
+
+            _context.Remove(todo);
+            _context.SaveChanges();
+            return todo;
+        }
     }
 }

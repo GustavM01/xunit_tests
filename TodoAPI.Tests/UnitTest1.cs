@@ -70,5 +70,29 @@ namespace TodoAPI.Tests
             Assert.Contains(result, x => x.Text == todo2.Text);
         }
 
+        [Fact]
+        public async void Delete_todo_check_if_deleted()
+        {
+            // Arrange
+            await ResetContext();
+            var todo = new Todo 
+            { 
+                Id = 1, 
+                Text = "Eat", 
+                IsDone = true 
+            };
+            var service = new TodoService(_context);
+            var addedTodo = service.PostNote(todo);
+
+            // Act
+            var result = service.DeleteNote(addedTodo.Id);
+
+            // Assert
+            Assert.Equal(result.Text, todo.Text);
+
+            // Check that the todo is deleted
+            Assert.Empty(_context.Todo);
+        }
+
     }
 }
