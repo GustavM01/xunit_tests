@@ -94,5 +94,12 @@ namespace TodoAPI.Controllers
 
             return Todos;
         }
+
+        public void ClearCompleted()
+        {
+            var todos = _context.Todo.Where(x => x.IsDone).ToArray();
+            _context.Todo.RemoveRange(todos);
+            _context.SaveChanges();
+        }
     }
 }
