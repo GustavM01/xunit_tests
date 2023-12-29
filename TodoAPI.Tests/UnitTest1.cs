@@ -95,7 +95,7 @@ namespace TodoAPI.Tests
         }
 
         [Fact]
-        public async void Change_todo_status_Returns_details()
+        public async void Change_todo_status_returns_details()
         {
             // Arrange
             await ResetContext();
@@ -118,5 +118,41 @@ namespace TodoAPI.Tests
             Assert.False(_context.Todo.Single(x => x.Id == result.Id).IsDone);
         }
 
+
+        [Fact]
+        public async void Toggle_notes_return_opposite_details()
+        {
+            // Arrange
+            await ResetContext();
+            var todo1 = new Todo 
+            { 
+                Id = 1, 
+                Text = "Eat", 
+                IsDone = true 
+            };
+            var todo2 = new Todo 
+            { 
+                Id = 2, 
+                Text = "Sleep", 
+                IsDone = false 
+            };
+            var service = new TodoService(_context);
+            service.PostNote(todo1);
+            service.PostNote(todo2);
+
+            // Act
+            // Toggle once to complete all
+            var result = await service.ToggleAll();
+
+            // Assert
+            Assert.All(result, x => Assert.True(x.IsDone));
+
+            // Act
+            // Toggle again to make all incomplete
+            var result2 = await service.ToggleAll();
+
+            // Assert
+            Assert.All(result2, x => Assert.False(x.IsDone));
+        }
     }
 }

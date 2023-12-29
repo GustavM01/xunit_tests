@@ -72,5 +72,27 @@ namespace TodoAPI.Controllers
 
             return todo;
         }
+
+        public async Task<Todo[]> ToggleAll()
+        {
+            var Todos = _context.Todo.ToArray();
+            if (Todos.All(x => x.IsDone))
+            {
+                foreach (var todo in Todos)
+                {
+                    todo.IsDone = false;
+                }
+            }
+            else
+            {
+                foreach (var todo in Todos)
+                {
+                    todo.IsDone = true;
+                }
+            }
+            await _context.SaveChangesAsync();
+
+            return Todos;
+        }
     }
 }
