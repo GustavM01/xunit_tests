@@ -56,5 +56,21 @@ namespace TodoAPI.Controllers
             _context.SaveChanges();
             return todo;
         }
+
+        public Todo ChangeStatus(Todo changeTodo)
+        {
+            var todo = _context.Todo.FirstOrDefault(x => x.Id == changeTodo.Id);
+
+            if (todo == null)
+            {
+                throw new Exception("");
+            }
+
+            todo.IsDone = changeTodo.IsDone;
+
+            _context.SaveChanges();
+
+            return todo;
+        }
     }
 }
