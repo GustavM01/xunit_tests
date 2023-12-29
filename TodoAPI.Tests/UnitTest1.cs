@@ -94,5 +94,29 @@ namespace TodoAPI.Tests
             Assert.Empty(_context.Todo);
         }
 
+        [Fact]
+        public async void Change_todo_status_Returns_details()
+        {
+            // Arrange
+            await ResetContext();
+            var todo = new Todo 
+            { 
+                Id = 1, 
+                Text = "Eat", 
+                IsDone = true 
+            };
+            var service = new TodoService(_context);
+            var addedTodo = service.PostNote(todo);
+
+            // Act
+            var result = service.ChangeStatus(new Todo { Id = addedTodo.Id, Text = "Eat", IsDone = false });
+
+            // Assert
+            Assert.False(result.IsDone);
+
+            // Check that todo has changed in database
+            Assert.False(_context.Todo.Single(x => x.Id == result.Id).IsDone);
+        }
+
     }
 }
