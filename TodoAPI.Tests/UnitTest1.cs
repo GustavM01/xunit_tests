@@ -184,5 +184,34 @@ namespace TodoAPI.Tests
             Assert.Single(_context.Todo);
             Assert.Equal(todo2.Text, _context.Todo.Single().Text);
         }
+
+        [Fact]
+        public async void Show_completed_todos()
+        {
+            // Arrange
+            await ResetContext();
+            var todo1 = new Todo 
+            { 
+                Id = 1, 
+                Text = "Eat", 
+                IsDone = true 
+            };
+            var todo2 = new Todo 
+            { 
+                Id = 2, 
+                Text = "Sleep", 
+                IsDone = false 
+            };
+            var service = new TodoService(_context);
+            service.PostNote(todo1);
+            service.PostNote(todo2);
+
+            // Act
+            var result = service.GetNotes(true);
+
+            // Assert
+            Assert.Single(result);
+            Assert.Equal(todo1.Text, result[0].Text);
+        }
     }
 }
