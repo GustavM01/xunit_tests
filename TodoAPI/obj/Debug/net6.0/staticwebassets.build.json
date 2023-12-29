@@ -1,11 +1,71 @@
 {
   "Version": 1,
-  "Hash": "nI41WlN7tqrTsZkJahJvmN2LqS24sFjL28Ef0ONE8oE=",
+  "Hash": "Ysgns1V2S6lekhC6yFDJDFiDPoCdN060zyCN9f1eRjc=",
   "Source": "TodoAPI",
   "BasePath": "_content/TodoAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "TodoAPI\\wwwroot",
+      "Source": "TodoAPI",
+      "ContentRoot": "C:\\Users\\gusta\\OneDrive\\Dokument\\Teknikhögskolan\\Backend\\Inlämning 1\\TodoAPI\\TodoAPI\\wwwroot\\",
+      "BasePath": "_content/TodoAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\gusta\\OneDrive\\Dokument\\Teknikhögskolan\\Backend\\Inlämning 1\\TodoAPI\\TodoAPI\\wwwroot\\index.html",
+      "SourceId": "TodoAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gusta\\OneDrive\\Dokument\\Teknikhögskolan\\Backend\\Inlämning 1\\TodoAPI\\TodoAPI\\wwwroot\\",
+      "BasePath": "_content/TodoAPI",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\gusta\\OneDrive\\Dokument\\Teknikhögskolan\\Backend\\Inlämning 1\\TodoAPI\\TodoAPI\\wwwroot\\main.css",
+      "SourceId": "TodoAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gusta\\OneDrive\\Dokument\\Teknikhögskolan\\Backend\\Inlämning 1\\TodoAPI\\TodoAPI\\wwwroot\\",
+      "BasePath": "_content/TodoAPI",
+      "RelativePath": "main.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main.css"
+    },
+    {
+      "Identity": "C:\\Users\\gusta\\OneDrive\\Dokument\\Teknikhögskolan\\Backend\\Inlämning 1\\TodoAPI\\TodoAPI\\wwwroot\\todomvc.js",
+      "SourceId": "TodoAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gusta\\OneDrive\\Dokument\\Teknikhögskolan\\Backend\\Inlämning 1\\TodoAPI\\TodoAPI\\wwwroot\\",
+      "BasePath": "_content/TodoAPI",
+      "RelativePath": "todomvc.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\todomvc.js"
+    }
+  ]
 }
