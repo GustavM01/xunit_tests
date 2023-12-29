@@ -26,5 +26,21 @@ namespace TodoAPI.Controllers
             return newTodo;
         }
 
+
+        public Todo[] GetNotes(bool? completed)
+        {
+            if (completed == true)
+            {
+                return _context.Todo.Where(x => x.IsDone).ToArray();
+            }
+            else if (completed == false)
+            {
+                return _context.Todo.Where(x => !x.IsDone).ToArray();
+            }
+            else
+            {
+                return _context.Todo.ToArray();
+            }
+        }
     }
 }
