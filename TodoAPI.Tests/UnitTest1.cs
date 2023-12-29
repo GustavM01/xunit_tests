@@ -49,5 +49,26 @@ namespace TodoAPI.Tests
             // Assert that the todo is saved in the database
             _context.Todo.Single(x => x.Text == todo.Text);
         }
+
+        [Fact]
+        public async void Get_all_todos()
+        {
+            // Arrange
+            await ResetContext();
+            var todo1 = new Todo { Id = 1, Text = "Sleep", IsDone = false };
+            var todo2 = new Todo { Id = 2, Text = "Work", IsDone = false };
+            var service = new TodoService(_context);
+            service.PostNote(todo1);
+            service.PostNote(todo2);
+
+            // Act
+            var result = service.GetNotes(null);
+
+            // Assert
+            Assert.Equal(2, result.Length);
+            Assert.Contains(result, x => x.Text == todo1.Text);
+            Assert.Contains(result, x => x.Text == todo2.Text);
+        }
+
     }
 }
