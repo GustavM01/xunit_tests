@@ -43,8 +43,7 @@ namespace TodoAPI.Controllers
             var newNote = new Todo
             {
                 IsDone = note.IsDone,
-                Text = note.Text,
-                Description = note.Description
+                Text = note.Text
             };
 
             database.Todo.Add(newNote);
